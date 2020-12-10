@@ -4,15 +4,14 @@ This action requests review.
 ## Usage
 ```
 - name: Request review
-  uses: murs313/request-review@v1.2
+  uses: murs313/request-review@v1.3
   with:
-    # Github token. Requied.
+    # Github token.
     token: ${{ secrets.GITHUB_TOKEN }}
     # Reviewers to add, in space separated list.
-    # default: `github.actor`
     reviewers: 'foo bar'
     # Pull request's number to request review.
-    # default: `github.context.payload.pull_request.number`
+pull_request.number`
     pull-request-number: 1
 ```
 
