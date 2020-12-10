@@ -3,10 +3,10 @@ description: 'Greet someone and record the time'
 inputs:
   token:
     description: 'GitHub token'
-    required: false
+    required: true
   pull-request-number:
     description: "Pull request's number"
-    required: true
+    required: false
   reviewers:
     description: "Reviewers to add, in space separated list"
     required: false

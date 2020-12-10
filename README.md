@@ -1,21 +1,28 @@
-# Hello world javascript action
+# request-review
+This action requests review.
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+## Usage
+```
+- name: Request review
+  uses: murs313/request-review@v1.2
+  with:
+    # Github token. Requied.
+    token: ${{ secrets.GITHUB_TOKEN }}
+    # Reviewers to add, in space separated list.
+    # default: `github.actor`
+    reviewers: 'foo bar'
+    # Pull request's number to request review.
+    # default: `github.context.payload.pull_request.number`
+    pull-request-number: 1
+```
 
 ## Inputs
 
-### `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
+| Name | Description | Default |
+| --- | --- | --- |
+| `token` | `GITHUB_TOKEN` or a `repo` scoped [PAT](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line). | none |
+| `reviewers` | Reviewers to add, in space separated list. | `github.actor` |
+| `pull-request-number` | Pull request's number to request review. | `github.context.payload.pull_request.number` |
 
 ## Outputs
-
-### `time`
-
-The time we greeted you.
-
-## Example usage
-
-uses: actions/hello-world-javascript-action@v1.1
-with:
-  who-to-greet: 'Mona the Octocat'
+None

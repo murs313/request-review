@@ -13,7 +13,7 @@ try {
   const octokit = new github.getOctokit(token);
   const githubContext = github.context;
 
-  const pullRequestNumber = core.getInput('pull-request-number');
+  const pullRequestNumber = core.getInput('pull-request-number') || githubContext.payload.pull_request.number;
   const reviewers = core.getInput('reviewers').split(" ") || [githubContext.actor];
 
   console.log(`Request review from ${reviewers}`);
