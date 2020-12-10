@@ -12,15 +12,17 @@ try {
   const token = process.env["GITHUB_TOKEN"] || core.getInput("token");
   const octokit = new github.getOctokit(token);
   const githubContext = github.context;
-  const numberOfPullRequest = core.getInput('number-of-pull-request');
 
-  console.log(numberOfPullRequest);
-  console.log(`Hello ${numberOfPullRequest}!`);
+  const pullRequestNumber = core.getInput('pull-request-number');
+  const reviewers = core.getInput('reviewers').split(" ") || [githubContext.actor];
+
+  console.log(pullRequestNumber);
+  console.log(`Hello ${pullRequestNumber}!`);
 
   octokit.pulls.requestReviewers({
     ...githubContext.repo,
-    pull_number: numberOfPullRequest,
-    reviewers: [githubContext.actor],
+    pull_number: pullRequestNumber,
+    reviewers: reviewers,
   });
 } catch (error) {
   core.setFailed(error.message);

@@ -2,11 +2,14 @@ name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
   token:
-    description: GitHub Access Token
+    description: 'GitHub token'
     required: false
-  number-of-pull-request:
-    description: 'number of pull request'
+  pull-request-number:
+    description: "Pull request's number"
     required: true
+  reviewers:
+    description: "Reviewers to add, in space separated list"
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
