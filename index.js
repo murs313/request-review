@@ -13,7 +13,7 @@ try {
   octokit.pulls.requestReviewers({
     ...githubContext.repo,
     pull_number: numberOfPullRequest,
-    reviewers: githubContext.actor,
+    reviewers: [githubContext.actor],
   });
 } catch (error) {
   core.setFailed(error.message);
