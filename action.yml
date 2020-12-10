@@ -1,6 +1,9 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
+  token:
+    description: GitHub Access Token
+    required: false
   number-of-pull-request:
     description: 'number of pull request'
     required: true
