@@ -21,6 +21,7 @@ try {
     reviewer = core.getInput('reviewers').split(" ")
   }
 
+  console.log(core.getInput('reviewers'));
   console.log(`Request review from ${reviewers}`);
 
   octokit.pulls.requestReviewers({
