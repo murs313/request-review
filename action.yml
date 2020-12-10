@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Request review'
+description: 'A GitHub Action for requesting review'
 branding:
   icon: 'user-check'
   color: 'green'
