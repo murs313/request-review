@@ -9,10 +9,19 @@ const core = __webpack_require__(171);
 const github = __webpack_require__(473);
 
 try {
-  // `who-to-greet` input defined in action metadata file
+  const token = process.env["GITHUB_TOKEN"] || core.getInput("token");
+  const octokit = new github.getOctokit(token);
+  const githubContext = github.context;
   const numberOfPullRequest = core.getInput('number-of-pull-request');
+
   console.log(numberOfPullRequest);
   console.log(`Hello ${numberOfPullRequest}!`);
+
+  octokit.pulls.requestReviewers({
+    ...githubContext.repo,
+    pull_number: numberOfPullRequest,
+    reviewers: githubContext.actor,
+  });
 } catch (error) {
   core.setFailed(error.message);
 }
