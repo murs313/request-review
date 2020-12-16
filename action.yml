@@ -7,11 +7,10 @@ inputs:
   token:
     description: 'GitHub token'
     required: true
-  pull-request-number:
-    description: "Pull request's number"
-    required: false
   reviewers:
     description: "Reviewers to add, in space separated list"
+  pull-request-number:
+    description: "Pull request's number"
     required: false
 runs:
   using: 'node12'
