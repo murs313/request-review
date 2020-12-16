@@ -10,9 +10,11 @@ inputs:
   pull-request-number:
     description: "Pull request's number"
     required: false
+    default: github.actor
   reviewers:
     description: "Reviewers to add, in space separated list"
     required: false
+    default: github.context.payload.pull_request.number
 runs:
   using: 'node12'
   main: 'dist/index.js'
