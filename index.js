@@ -6,8 +6,8 @@ try {
   const octokit = new github.getOctokit(token);
   const githubContext = github.context;
 
-  const pullRequestNumber = core.getInput('pull-request-number');
-  const reviewers = core.getInput('reviewers').split(" ")
+  const pullRequestNumber = core.getInput('pull-request-number') || githubContext.payload.pull_request.number;
+  const reviewers = core.getInput('reviewers').split(" ");
 
   console.log(`Request review from ${reviewers}`);
 
