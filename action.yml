@@ -9,6 +9,7 @@ inputs:
     required: true
   reviewers:
     description: "Reviewers to add, in space separated list"
+    required: true
   pull-request-number:
     description: "Pull request's number"
     required: false
