@@ -4,7 +4,7 @@ This action requests review. You can set pull request number.
 ## Usage
 ```
 - name: Request review
-  uses: murs313/request-review@v1.5
+  uses: murs313/request-review@v1.0
   with:
     # Github token.
     token: ${{ secrets.GITHUB_TOKEN }}
